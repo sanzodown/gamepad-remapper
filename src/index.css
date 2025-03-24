@@ -1,0 +1,390 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+select, input {
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 4px;
+  border: 1px solid #444;
+  padding: 0.4em 0.6em;
+  font-size: 1em;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  font-size: 0.9em;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+  select, input {
+    background-color: #f9f9f9;
+    color: #213547;
+    border-color: #ccc;
+  }
+}
+
+/* App container */
+.app {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.waiting-message {
+  font-size: 1.5rem;
+  color: #888;
+  margin-top: 4rem;
+}
+
+/* Gamepad display */
+.gamepad-display {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.controller-name {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.controller-visualization {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Gamepad Pair */
+.gamepad-pair {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.controllers-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.controller-wrapper {
+  flex: 1;
+  min-width: 300px;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controller-name {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.controller-visualization {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remapping-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.remapping-ui, .mappings-ui {
+  flex: 1;
+  min-width: 300px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.remapping-ui {
+  min-width: 450px;
+}
+
+/* Remapping Controls */
+.remapping-controls {
+  width: 100%;
+}
+
+.remapping-controls h3, .mappings-list h3 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.mapping-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.mapping-column {
+  flex: 1;
+  min-width: 180px;
+}
+
+.mapping-column h4 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.mapping-arrow {
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-group {
+  margin-bottom: 1.2rem;
+  width: 100%;
+}
+
+.input-with-button {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.input-with-button label {
+  flex: 1;
+  min-width: 180px;
+}
+
+.listen-button {
+  padding: 0.5em 0.8em;
+  font-size: 0.9em;
+  white-space: nowrap;
+  background-color: #2a2a2a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.listen-button:hover {
+  background-color: #3a3a3a;
+}
+
+select {
+  width: 100%;
+  max-width: 200px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: #2a2a2a;
+  color: white;
+  border: 1px solid #444;
+  font-size: 0.9rem;
+}
+
+/* Action buttons */
+.actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.action-button {
+  padding: 0.6rem 1.2rem;
+  background-color: #2a2a2a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.action-button:hover:not(:disabled) {
+  background-color: #3a3a3a;
+}
+
+.action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Pressed buttons and active axes display */
+.pressed-buttons, .activated-axes {
+  margin-top: 0.8rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 0.8rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.pressed-button, .activated-axis {
+  display: inline-block;
+  margin: 0.2rem;
+  padding: 0.3rem 0.6rem;
+  background-color: rgba(100, 108, 255, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.pressed-button:hover, .activated-axis:hover {
+  background-color: rgba(100, 108, 255, 0.4);
+}
+
+/* Listening indicator */
+.listening-indicator {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  background-color: rgba(255, 200, 0, 0.2);
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Mappings List */
+.mappings-list {
+  width: 100%;
+}
+
+.mapping-group {
+  margin-bottom: 1.5rem;
+}
+
+.mapping-group h4 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.mapping-group ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mapping-group li {
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  margin-bottom: 0.8rem;
+  border-radius: 4px;
+}
+
+/* Enhanced mapping item display */
+.mapping-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.mapping-source, .mapping-target {
+  flex: 1;
+  padding: 0.8rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  min-width: 180px;
+  text-align: center;
+}
